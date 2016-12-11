@@ -1,0 +1,1 @@
+Value of 4.txt from child 3

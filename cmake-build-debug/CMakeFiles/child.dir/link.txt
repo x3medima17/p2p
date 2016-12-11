@@ -1,0 +1,1 @@
+g++-6    -Wall -Wno-long-long -pedantic -Wextra -Wshadow -g   CMakeFiles/child.dir/src/File.cpp.o CMakeFiles/child.dir/src/IOHandler.cpp.o CMakeFiles/child.dir/src/IOLoop.cpp.o CMakeFiles/child.dir/src/Message.cpp.o CMakeFiles/child.dir/src/Socket.cpp.o CMakeFiles/child.dir/src/Utils.cpp.o CMakeFiles/child.dir/child.cpp.o  -o child -lstdc++fs 
