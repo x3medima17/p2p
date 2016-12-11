@@ -1,1 +1,0 @@
-/usr/bin/c++   -g   CMakeFiles/KaZaA.dir/src/Socket.cpp.o CMakeFiles/KaZaA.dir/main.cpp.o  -o KaZaA 

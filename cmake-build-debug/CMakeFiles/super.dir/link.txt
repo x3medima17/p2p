@@ -1,1 +1,0 @@
-g++-6    -Wall -Wno-long-long -pedantic -Wextra -Wshadow -g   CMakeFiles/super.dir/src/File.cpp.o CMakeFiles/super.dir/src/IOHandler.cpp.o CMakeFiles/super.dir/src/IOLoop.cpp.o CMakeFiles/super.dir/src/Message.cpp.o CMakeFiles/super.dir/src/Socket.cpp.o CMakeFiles/super.dir/src/Utils.cpp.o CMakeFiles/super.dir/super.cpp.o  -o super 

@@ -2,10 +2,10 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" buildAllGenerated="true">
     <generated>
-      <config projectName="KaZaA" targetName="KaZaA" />
-      <config projectName="KaZaA" targetName="child" />
-      <config projectName="KaZaA" targetName="super" />
       <config projectName="KaZaA" targetName="server" />
+      <config projectName="KaZaA" targetName="child" />
+      <config projectName="KaZaA" targetName="KaZaA" />
+      <config projectName="KaZaA" targetName="super" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
@@ -31,14 +31,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="super.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="super.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/super.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="32" />
+            <state relative-caret-position="240">
+              <caret line="16" column="29" lean-forward="false" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
               <folding>
-                <element signature="e#254#273#0" expanded="true" />
+                <element signature="e#514#533#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="296">
+              <caret line="35" column="100" lean-forward="false" selection-start-line="35" selection-start-column="100" selection-end-line="35" selection-end-column="100" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -70,7 +80,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
               <caret line="14" column="52" lean-forward="false" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
-              <folding />
+              <folding>
+                <marker date="1481461596694" expanded="true" signature="129:1029" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -90,7 +102,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
               <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-              <folding />
+              <folding>
+                <marker date="1481459803539" expanded="true" signature="134:579" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -146,7 +160,6 @@
         <option value="$PROJECT_DIR$/src/IOHandler.cpp" />
         <option value="$PROJECT_DIR$/File.hpp" />
         <option value="$PROJECT_DIR$/File.cpp" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/include/File.hpp" />
         <option value="$PROJECT_DIR$/src/File.cpp" />
         <option value="$PROJECT_DIR$/include/IOLoop.hpp" />
@@ -159,6 +172,7 @@
         <option value="$PROJECT_DIR$/child.cpp" />
         <option value="$PROJECT_DIR$/include/Message.hpp" />
         <option value="$PROJECT_DIR$/super.cpp" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
       </list>
     </option>
   </component>
@@ -459,15 +473,15 @@
       <workItem from="1481122842414" duration="972000" />
       <workItem from="1481124021319" duration="27312000" />
       <workItem from="1481356650598" duration="36806000" />
-      <workItem from="1481445362763" duration="13396000" />
+      <workItem from="1481445362763" duration="15049000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106669000" />
+    <option name="totallyTimeSpent" value="108322000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="30" width="1366" height="738" extended-state="0" />
+    <frame x="0" y="30" width="1366" height="738" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24597365" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -506,7 +520,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/super.cpp</url>
-          <line>279</line>
+          <line>282</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
@@ -543,6 +557,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="23" lean-forward="false" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -558,7 +573,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1481461596694" expanded="true" signature="129:1029" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -567,7 +584,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#254#273#0" expanded="true" />
+            <element signature="e#514#533#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -608,6 +625,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="23" lean-forward="false" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -623,7 +641,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1481461596694" expanded="true" signature="129:1029" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -632,7 +652,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#254#273#0" expanded="true" />
+            <element signature="e#514#533#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -768,13 +788,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="87" lean-forward="false" selection-start-line="5" selection-start-column="87" selection-end-line="5" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/include/c++/6/experimental/bits/fs_dir.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="118">
@@ -825,7 +838,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1481459803539" expanded="true" signature="134:579" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -859,17 +874,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="14" column="52" lean-forward="false" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
-          <folding />
+          <folding>
+            <marker date="1481461596694" expanded="true" signature="129:1029" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/super.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="32" />
+        <state relative-caret-position="240">
+          <caret line="16" column="29" lean-forward="false" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
           <folding>
-            <element signature="e#254#273#0" expanded="true" />
+            <element signature="e#514#533#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="35" column="100" lean-forward="false" selection-start-line="35" selection-start-column="100" selection-end-line="35" selection-end-column="100" />
+          <folding />
         </state>
       </provider>
     </entry>

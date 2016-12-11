@@ -6,12 +6,15 @@
 
 /*! \mainpage KaZaA implementation
  *
- * \section super_sec Super Node
+ * \section intro_sec Introduction
  *
- * This is the introduction.
+ * In the following project a p2p network has been implemented.
+ * Here overall project structure is described, detailed description of each structure is present below.
+ *
  *
  * \section install_sec Installation
- *
+ * First of all you need to clone project repository: https://github.com/x3medima17/p2p
+ * Then you have to run cmake
  * \subsection step1 Step 1: Opening the box
  *
  * etc...

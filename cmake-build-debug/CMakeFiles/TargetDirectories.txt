@@ -1,4 +1,0 @@
-/home/dumitru/ClionProjects/KaZaA/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/dumitru/ClionProjects/KaZaA/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/dumitru/ClionProjects/KaZaA/cmake-build-debug/CMakeFiles/child.dir
-/home/dumitru/ClionProjects/KaZaA/cmake-build-debug/CMakeFiles/super.dir
