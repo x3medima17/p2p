@@ -2,6 +2,21 @@
 // Created by dumitru on 16. 12. 4.
 //
 
+
+
+/*! \mainpage KaZaA implementation
+ *
+ * \section super_sec Super Node
+ *
+ * This is the introduction.
+ *
+ * \section install_sec Installation
+ *
+ * \subsection step1 Step 1: Opening the box
+ *
+ * etc...
+ */
+
 #include <iostream>
 #include <map>
 #include <cassert>
@@ -12,11 +27,6 @@
 
 #include "Utils.hpp"
 #include "File.hpp"
-
-using NodeVector_t = std::vector<std::pair<std::string, uint16_t>>;
-//filename child_ID
-//std::map<std::string, uint32_t > FileTable;
-//NodeVector_t SuperNodes, ChildNodes;
 
 
 struct Node {
