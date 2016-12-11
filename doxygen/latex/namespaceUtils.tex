@@ -1,0 +1,117 @@
+\hypertarget{namespaceUtils}{}\section{Utils Namespace Reference}
+\label{namespaceUtils}\index{Utils@{Utils}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \hyperlink{namespaceUtils_a61c151a32493475c413d3b7964615d01}{uint32\+\_\+from\+\_\+vec} (std\+::vector$<$ uint8\+\_\+t $>$\+::const\+\_\+iterator it)
+\item 
+std\+::vector$<$ uint8\+\_\+t $>$ \hyperlink{namespaceUtils_a268ccd9cd3521e318e67a4c58cb95066}{vec\+\_\+from\+\_\+uint32} (uint32\+\_\+t val)
+\item 
+\hyperlink{structMessage}{Message} \hyperlink{namespaceUtils_a632dc21b737a7e31b5d5653d8fb927c6}{read\+\_\+message} (const \hyperlink{classSocket}{Socket} \&sock, size\+\_\+t timeout=5000)
+\item 
+void \hyperlink{namespaceUtils_a3a16defae746b5d1ef3f072da17ac377}{write\+\_\+message} (const \hyperlink{classSocket}{Socket} \&sock, \hyperlink{structMessage}{Message} \&msg)
+\item 
+std\+::map$<$ std\+::string, std\+::string $>$ \hyperlink{namespaceUtils_a50030bbcd5a72967f903913b18ac11dd}{parse\+\_\+cmd\+\_\+args} (int argc, char $\ast$$\ast$argv)
+\item 
+uint16\+\_\+t {\bfseries uint16\+\_\+from\+\_\+vec} (std\+::vector$<$ uint8\+\_\+t $>$\+::const\+\_\+iterator it)\hypertarget{namespaceUtils_a9aefb9599b00ed911043880504b3cc50}{}\label{namespaceUtils_a9aefb9599b00ed911043880504b3cc50}
+
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const size\+\_\+t \hyperlink{namespaceUtils_aa3bfa39b8378ffaa8f0452645d5dd44f}{H\+E\+A\+D\+E\+R\+\_\+\+S\+I\+ZE} \{12\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Utility namespace that contains all necessary function and constants 
+
+\subsection{Function Documentation}
+\index{Utils@{Utils}!parse\+\_\+cmd\+\_\+args@{parse\+\_\+cmd\+\_\+args}}
+\index{parse\+\_\+cmd\+\_\+args@{parse\+\_\+cmd\+\_\+args}!Utils@{Utils}}
+\subsubsection[{\texorpdfstring{parse\+\_\+cmd\+\_\+args(int argc, char $\ast$$\ast$argv)}{parse_cmd_args(int argc, char **argv)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::map$<$ std\+::string, std\+::string $>$ Utils\+::parse\+\_\+cmd\+\_\+args (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceUtils_a50030bbcd5a72967f903913b18ac11dd}{}\label{namespaceUtils_a50030bbcd5a72967f903913b18ac11dd}
+This function is invoken in Child and Super it parses command line 
+\begin{DoxyParams}{Parameters}
+{\em argc} & Number of arguments \\
+\hline
+{\em argv} & Pointer to $\ast$char (arguments) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a map of string(argument) -\/$>$ string(value) 
+\end{DoxyReturn}
+\index{Utils@{Utils}!read\+\_\+message@{read\+\_\+message}}
+\index{read\+\_\+message@{read\+\_\+message}!Utils@{Utils}}
+\subsubsection[{\texorpdfstring{read\+\_\+message(const Socket \&sock, size\+\_\+t timeout=5000)}{read_message(const Socket &sock, size_t timeout=5000)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Message} Utils\+::read\+\_\+message (
+\begin{DoxyParamCaption}
+\item[{const {\bf Socket} \&}]{sock, }
+\item[{size\+\_\+t}]{timeout = {\ttfamily 5000}}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceUtils_a632dc21b737a7e31b5d5653d8fb927c6}{}\label{namespaceUtils_a632dc21b737a7e31b5d5653d8fb927c6}
+Most used function in the app, it reads a \hyperlink{structMessage}{Message} from the socket 
+\begin{DoxyParams}{Parameters}
+{\em sock} & Constant socket reference \\
+\hline
+{\em timeout} & Timeout of reading (required in the task), it has a default value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+It return a \hyperlink{structMessage}{Message} instance 
+\end{DoxyReturn}
+\index{Utils@{Utils}!uint32\+\_\+from\+\_\+vec@{uint32\+\_\+from\+\_\+vec}}
+\index{uint32\+\_\+from\+\_\+vec@{uint32\+\_\+from\+\_\+vec}!Utils@{Utils}}
+\subsubsection[{\texorpdfstring{uint32\+\_\+from\+\_\+vec(std\+::vector$<$ uint8\+\_\+t $>$\+::const\+\_\+iterator it)}{uint32_from_vec(std::vector< uint8_t >::const_iterator it)}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t Utils\+::uint32\+\_\+from\+\_\+vec (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ uint8\+\_\+t $>$\+::const\+\_\+iterator}]{it}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceUtils_a61c151a32493475c413d3b7964615d01}{}\label{namespaceUtils_a61c151a32493475c413d3b7964615d01}
+Method that transforms a byte array to 4 byte integer 
+\begin{DoxyParams}{Parameters}
+{\em it} & Vectors iterator \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+unsigned int value 
+\end{DoxyReturn}
+\index{Utils@{Utils}!vec\+\_\+from\+\_\+uint32@{vec\+\_\+from\+\_\+uint32}}
+\index{vec\+\_\+from\+\_\+uint32@{vec\+\_\+from\+\_\+uint32}!Utils@{Utils}}
+\subsubsection[{\texorpdfstring{vec\+\_\+from\+\_\+uint32(uint32\+\_\+t val)}{vec_from_uint32(uint32_t val)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ uint8\+\_\+t $>$ Utils\+::vec\+\_\+from\+\_\+uint32 (
+\begin{DoxyParamCaption}
+\item[{uint32\+\_\+t}]{val}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceUtils_a268ccd9cd3521e318e67a4c58cb95066}{}\label{namespaceUtils_a268ccd9cd3521e318e67a4c58cb95066}
+Same as previous but does exactly the oposite action 
+\begin{DoxyParams}{Parameters}
+{\em val} & unsiged int \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector of bytes 
+\end{DoxyReturn}
+\index{Utils@{Utils}!write\+\_\+message@{write\+\_\+message}}
+\index{write\+\_\+message@{write\+\_\+message}!Utils@{Utils}}
+\subsubsection[{\texorpdfstring{write\+\_\+message(const Socket \&sock, Message \&msg)}{write_message(const Socket &sock, Message &msg)}}]{\setlength{\rightskip}{0pt plus 5cm}void Utils\+::write\+\_\+message (
+\begin{DoxyParamCaption}
+\item[{const {\bf Socket} \&}]{sock, }
+\item[{{\bf Message} \&}]{msg}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceUtils_a3a16defae746b5d1ef3f072da17ac377}{}\label{namespaceUtils_a3a16defae746b5d1ef3f072da17ac377}
+This method writes a \hyperlink{structMessage}{Message} into \hyperlink{classSocket}{Socket} 
+\begin{DoxyParams}{Parameters}
+{\em sock} & Constant \hyperlink{classSocket}{Socket} reference \\
+\hline
+{\em msg} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Variable Documentation}
+\index{Utils@{Utils}!H\+E\+A\+D\+E\+R\+\_\+\+S\+I\+ZE@{H\+E\+A\+D\+E\+R\+\_\+\+S\+I\+ZE}}
+\index{H\+E\+A\+D\+E\+R\+\_\+\+S\+I\+ZE@{H\+E\+A\+D\+E\+R\+\_\+\+S\+I\+ZE}!Utils@{Utils}}
+\subsubsection[{\texorpdfstring{H\+E\+A\+D\+E\+R\+\_\+\+S\+I\+ZE}{HEADER_SIZE}}]{\setlength{\rightskip}{0pt plus 5cm}const size\+\_\+t Utils\+::\+H\+E\+A\+D\+E\+R\+\_\+\+S\+I\+ZE \{12\}}\hypertarget{namespaceUtils_aa3bfa39b8378ffaa8f0452645d5dd44f}{}\label{namespaceUtils_aa3bfa39b8378ffaa8f0452645d5dd44f}
+Header size of message 

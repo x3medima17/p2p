@@ -1,13 +1,15 @@
 \hypertarget{structFile}{}\section{File Struct Reference}
 \label{structFile}\index{File@{File}}
+
+
+{\ttfamily \#include $<$File.\+hpp$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\bfseries File} (std\+::string fname, size\+\_\+t size)\hypertarget{structFile_ad0746cf10905ee35809f9e64452dc947}{}\label{structFile_ad0746cf10905ee35809f9e64452dc947}
-
+\hyperlink{structFile_ad0746cf10905ee35809f9e64452dc947}{File} (std\+::string fname, size\+\_\+t size)
 \item 
-void {\bfseries print} () const \hypertarget{structFile_a953519811424483b08848c889a7f0743}{}\label{structFile_a953519811424483b08848c889a7f0743}
-
+void \hyperlink{structFile_a953519811424483b08848c889a7f0743}{print} () const 
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -19,6 +21,37 @@ size\+\_\+t {\bfseries size\+\_\+}\hypertarget{structFile_ac884c55c119bb40a06be3
 
 \end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+Child uses C++17 feature called File\+System, in order to keep data close I use \hyperlink{structFile}{File} class, it stores filename and size. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{File@{File}!File@{File}}
+\index{File@{File}!File@{File}}
+\subsubsection[{\texorpdfstring{File(std\+::string fname, size\+\_\+t size)}{File(std::string fname, size_t size)}}]{\setlength{\rightskip}{0pt plus 5cm}File\+::\+File (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{fname, }
+\item[{size\+\_\+t}]{size}
+\end{DoxyParamCaption}
+)}\hypertarget{structFile_ad0746cf10905ee35809f9e64452dc947}{}\label{structFile_ad0746cf10905ee35809f9e64452dc947}
+Standard file constructor 
+\begin{DoxyParams}{Parameters}
+{\em fname} & \hyperlink{structFile}{File} name \\
+\hline
+{\em size} & \hyperlink{structFile}{File} size \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{File@{File}!print@{print}}
+\index{print@{print}!File@{File}}
+\subsubsection[{\texorpdfstring{print() const }{print() const }}]{\setlength{\rightskip}{0pt plus 5cm}void File\+::print (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{structFile_a953519811424483b08848c889a7f0743}{}\label{structFile_a953519811424483b08848c889a7f0743}
+Method that prints file data in a pretty format. Mainly used for debugging. 
 
 The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

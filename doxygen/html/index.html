@@ -38,6 +38,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -109,7 +110,16 @@ It has a <a class="el" href="classIOHandler.html">IOHandler</a> virtual class th
 <p>iohandler <a class="el" href="classIOHandler.html">IOHandler</a> <a class="el" href="classIOHandler.html">IOHandler</a> is an semi-abstract class that is a member of <a class="el" href="classIOLoop.html">IOLoop</a>, its job is to take incoming data and do some actions on it. Its default behaivor is to ignore any data.</p>
 <h2><a class="anchor" id="siohandler"></a>
 SuperIOHandler</h2>
-<p><a class="el" href="classSuperIOHandler.html">SuperIOHandler</a> extends <a class="el" href="classIOHandler.html">IOHandler</a> and is passed to <a class="el" href="classIOLoop.html">IOLoop</a>, this way Supers's <a class="el" href="classIOLoop.html">IOLoop</a> will invoke <a class="el" href="classSuperIOHandler.html">SuperIOHandler</a>'s onRead method. etc... </p>
+<p><a class="el" href="classSuperIOHandler.html">SuperIOHandler</a> extends <a class="el" href="classIOHandler.html">IOHandler</a> and is passed to <a class="el" href="classIOLoop.html">IOLoop</a>, this way Supers's <a class="el" href="classIOLoop.html">IOLoop</a> will invoke <a class="el" href="classSuperIOHandler.html">SuperIOHandler</a>'s onRead method.</p>
+<h2><a class="anchor" id="ciohadnler"></a>
+ChildIOHandler</h2>
+<p><a class="el" href="classSuperIOHandler.html">SuperIOHandler</a> extends <a class="el" href="classIOHandler.html">IOHandler</a> and is passed to <a class="el" href="classIOLoop.html">IOLoop</a>, this way Supers's <a class="el" href="classIOLoop.html">IOLoop</a> will invoke <a class="el" href="classSuperIOHandler.html">SuperIOHandler</a>'s onRead method.</p>
+<h1><a class="anchor" id="Super"></a>
+Super</h1>
+<p>It is source code of Super <a class="el" href="structNode.html">Node</a>, first of all it scans command line arguments. If another supernode arguments are present it it will send HELLO_SUPER message (messages are explained later), then it takes its own port and starts server using <a class="el" href="classIOLoop.html">IOLoop</a> on that port.</p>
+<h1><a class="anchor" id="Child"></a>
+Child</h1>
+<p>It is source code of Child <a class="el" href="structNode.html">Node</a>, first of all it scans command line arguments. it finds supernode arguments and sends HELLO_CHILD message (messages are explained later), then it takes its own port and starts server using <a class="el" href="classIOLoop.html">IOLoop</a> on that port. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

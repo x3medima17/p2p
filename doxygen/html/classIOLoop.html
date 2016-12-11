@@ -38,6 +38,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -89,16 +90,47 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">IOLoop Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="IOLoop_8hpp_source.html">IOLoop.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a991895206fdd315c28a9437d0b00e2a3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a991895206fdd315c28a9437d0b00e2a3"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>IOLoop</b> (<a class="el" href="classSocket.html">Socket</a> &amp;, <a class="el" href="classIOHandler.html">IOHandler</a> &amp;)</td></tr>
+<tr class="memitem:a991895206fdd315c28a9437d0b00e2a3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIOLoop.html#a991895206fdd315c28a9437d0b00e2a3">IOLoop</a> (<a class="el" href="classSocket.html">Socket</a> &amp;, <a class="el" href="classIOHandler.html">IOHandler</a> &amp;)</td></tr>
 <tr class="separator:a991895206fdd315c28a9437d0b00e2a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a227cd89b27b6f9cb302bf501943e2184"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a227cd89b27b6f9cb302bf501943e2184"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>start</b> ()</td></tr>
 <tr class="separator:a227cd89b27b6f9cb302bf501943e2184"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Class that does all server's job, it listens for incoming data using <code>select()</code> and invokes the right functions. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a991895206fdd315c28a9437d0b00e2a3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IOLoop::IOLoop </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classSocket.html">Socket</a> &amp;&#160;</td>
+          <td class="paramname"><em>listener</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classIOHandler.html">IOHandler</a> &amp;&#160;</td>
+          <td class="paramname"><em>handler</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p><a class="el" href="classIOLoop.html">IOLoop</a> constructor, takes <a class="el" href="classSocket.html">Socket</a> and <a class="el" href="classIOHandler.html">IOHandler</a> refference. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/<a class="el" href="IOLoop_8hpp_source.html">IOLoop.hpp</a></li>
 <li>src/IOLoop.cpp</li>

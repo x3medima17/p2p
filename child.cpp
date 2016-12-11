@@ -22,7 +22,7 @@ using std::cout;
 using std::endl;
 
 
-uint32_t  set_random_id()
+uint32_t set_random_id()
 {
     int x;
     int *p = &x;
@@ -49,8 +49,19 @@ auto scan() {
     return V;
 }
 
+/**
+ * This class extends IOHandler and implements its onRead functions
+ * There are two `onRead` functions, one for stdin, another for sockets
+ */
 class ChildIOHandler : public IOHandler {
 public:
+    /**
+     * This method is invoked when a certain data is available in stdin.
+     * Using iostreams it reads three arguments: command (get), arg1 (input file), arg2 (output file)\n
+     * If data is not valid it will tell that
+     * @param fd File descriptor, it is 0 for stdin
+     * @param readfd File descriptor set, that is used for `select()`
+     */
     void onRead(size_t fd, fd_set *readfd) override {
 
         std::string cmd{""}, arg1{""}, arg2{""};
@@ -93,6 +104,12 @@ public:
         FD_CLR(fd, readfd);
     }
 
+    /**
+     * This method is invoked if there is something to read from a socket \n
+     * A message is read using Utils namespace, then based on that message type a certain action will take place.
+     * @param client A reference to shared poiter to client
+     * @param readfd File descriptor set, that is used for `select()`
+     */
     void onRead(std::shared_ptr<Socket> &client, fd_set *readfd) override {
         auto msg = Utils::read_message(*client);
         uint32_t node_id = ID;

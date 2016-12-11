@@ -1,5 +1,9 @@
 \hypertarget{structMessage}{}\section{Message Struct Reference}
 \label{structMessage}\index{Message@{Message}}
+
+
+{\ttfamily \#include $<$Message.\+hpp$>$}
+
 \subsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
@@ -27,11 +31,9 @@ enum \hyperlink{structMessage_a2cd191f475dd51cf44f57950e8862cd3}{M\+S\+G\+\_\+\+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void {\bfseries set\+\_\+payload} (std\+::string s)\hypertarget{structMessage_a8c71bc14df10d1bc4a11c9912ec83e11}{}\label{structMessage_a8c71bc14df10d1bc4a11c9912ec83e11}
-
+void \hyperlink{structMessage_a8c71bc14df10d1bc4a11c9912ec83e11}{set\+\_\+payload} (std\+::string s)
 \item 
-void {\bfseries print} () const \hypertarget{structMessage_a2967b7c13fd34ea7767b6e00076b3e76}{}\label{structMessage_a2967b7c13fd34ea7767b6e00076b3e76}
-
+void \hyperlink{structMessage_a2967b7c13fd34ea7767b6e00076b3e76}{print} () const 
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -56,11 +58,37 @@ std\+::stringstream {\bfseries ss}\hypertarget{structMessage_ac499b4fb6c41a75125
 \end{DoxyCompactItemize}
 
 
+\subsection{Detailed Description}
+This is one the main classes in the application. All data exchange on the network is done through Messages. ~\newline
+It has a header and a payload. Header is 12 bytes and payload has variable length. All payload is sent in a raw format and then read as string streams, the only exceptions are files that are being transmitted. 
+
 \subsection{Member Enumeration Documentation}
 \index{Message@{Message}!M\+S\+G\+\_\+\+T\+Y\+P\+ES@{M\+S\+G\+\_\+\+T\+Y\+P\+ES}}
 \index{M\+S\+G\+\_\+\+T\+Y\+P\+ES@{M\+S\+G\+\_\+\+T\+Y\+P\+ES}!Message@{Message}}
 \subsubsection[{\texorpdfstring{M\+S\+G\+\_\+\+T\+Y\+P\+ES}{MSG_TYPES}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Message\+::\+M\+S\+G\+\_\+\+T\+Y\+P\+ES} \+: std\+::uint32\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}\hypertarget{structMessage_a2cd191f475dd51cf44f57950e8862cd3}{}\label{structMessage_a2cd191f475dd51cf44f57950e8862cd3}
 Enum designed to work safely with \hyperlink{structMessage}{Message} types No raw flags are used, only encapsulated enum 
+
+\subsection{Member Function Documentation}
+\index{Message@{Message}!print@{print}}
+\index{print@{print}!Message@{Message}}
+\subsubsection[{\texorpdfstring{print() const }{print() const }}]{\setlength{\rightskip}{0pt plus 5cm}void Message\+::print (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{structMessage_a2967b7c13fd34ea7767b6e00076b3e76}{}\label{structMessage_a2967b7c13fd34ea7767b6e00076b3e76}
+Method that prints message in a pretty format. Mainly used for debugging. \index{Message@{Message}!set\+\_\+payload@{set\+\_\+payload}}
+\index{set\+\_\+payload@{set\+\_\+payload}!Message@{Message}}
+\subsubsection[{\texorpdfstring{set\+\_\+payload(std\+::string s)}{set_payload(std::string s)}}]{\setlength{\rightskip}{0pt plus 5cm}void Message\+::set\+\_\+payload (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{s}
+\end{DoxyParamCaption}
+)}\hypertarget{structMessage_a8c71bc14df10d1bc4a11c9912ec83e11}{}\label{structMessage_a8c71bc14df10d1bc4a11c9912ec83e11}
+Because payload is vector of bytes, it cannot be assigned by a string, method set\+\_\+payload takes a string and copies it byte by byte. 
+\begin{DoxyParams}{Parameters}
+{\em s} & payload as a string \\
+\hline
+\end{DoxyParams}
+
 
 The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

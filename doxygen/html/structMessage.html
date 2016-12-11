@@ -38,6 +38,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -91,6 +92,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Message Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="Message_8hpp_source.html">Message.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
@@ -119,11 +122,9 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8c71bc14df10d1bc4a11c9912ec83e11"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8c71bc14df10d1bc4a11c9912ec83e11"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>set_payload</b> (std::string s)</td></tr>
+<tr class="memitem:a8c71bc14df10d1bc4a11c9912ec83e11"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMessage.html#a8c71bc14df10d1bc4a11c9912ec83e11">set_payload</a> (std::string s)</td></tr>
 <tr class="separator:a8c71bc14df10d1bc4a11c9912ec83e11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2967b7c13fd34ea7767b6e00076b3e76"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2967b7c13fd34ea7767b6e00076b3e76"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> () const </td></tr>
+<tr class="memitem:a2967b7c13fd34ea7767b6e00076b3e76"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMessage.html#a2967b7c13fd34ea7767b6e00076b3e76">print</a> () const </td></tr>
 <tr class="separator:a2967b7c13fd34ea7767b6e00076b3e76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -147,7 +148,10 @@ std::vector&lt; uint8_t &gt;&#160;</td><td class="memItemRight" valign="bottom">
 std::stringstream&#160;</td><td class="memItemRight" valign="bottom"><b>ss</b></td></tr>
 <tr class="separator:ac499b4fb6c41a7512584c3cff3c68469"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This is one the main classes in the application. All data exchange on the network is done through Messages. <br />
+It has a header and a payload. Header is 12 bytes and payload has variable length. All payload is sent in a raw format and then read as string streams, the only exceptions are files that are being transmitted. </p>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a class="anchor" id="a2cd191f475dd51cf44f57950e8862cd3"></a>
 <div class="memitem">
 <div class="memproto">
@@ -166,6 +170,45 @@ std::stringstream&#160;</td><td class="memItemRight" valign="bottom"><b>ss</b></
 </table>
 </div><div class="memdoc">
 <p>Enum designed to work safely with <a class="el" href="structMessage.html">Message</a> types No raw flags are used, only encapsulated enum </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a2967b7c13fd34ea7767b6e00076b3e76"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Message::print </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Method that prints message in a pretty format. Mainly used for debugging. </p>
+
+</div>
+</div>
+<a class="anchor" id="a8c71bc14df10d1bc4a11c9912ec83e11"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Message::set_payload </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Because payload is vector of bytes, it cannot be assigned by a string, method set_payload takes a string and copies it byte by byte. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>payload as a string </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

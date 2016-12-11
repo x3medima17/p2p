@@ -1,15 +1,32 @@
 \hypertarget{classIOLoop}{}\section{I\+O\+Loop Class Reference}
 \label{classIOLoop}\index{I\+O\+Loop@{I\+O\+Loop}}
+
+
+{\ttfamily \#include $<$I\+O\+Loop.\+hpp$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\bfseries I\+O\+Loop} (\hyperlink{classSocket}{Socket} \&, \hyperlink{classIOHandler}{I\+O\+Handler} \&)\hypertarget{classIOLoop_a991895206fdd315c28a9437d0b00e2a3}{}\label{classIOLoop_a991895206fdd315c28a9437d0b00e2a3}
-
+\hyperlink{classIOLoop_a991895206fdd315c28a9437d0b00e2a3}{I\+O\+Loop} (\hyperlink{classSocket}{Socket} \&, \hyperlink{classIOHandler}{I\+O\+Handler} \&)
 \item 
 void {\bfseries start} ()\hypertarget{classIOLoop_a227cd89b27b6f9cb302bf501943e2184}{}\label{classIOLoop_a227cd89b27b6f9cb302bf501943e2184}
 
 \end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+Class that does all server\textquotesingle{}s job, it listens for incoming data using {\ttfamily select()} and invokes the right functions. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{I\+O\+Loop@{I\+O\+Loop}!I\+O\+Loop@{I\+O\+Loop}}
+\index{I\+O\+Loop@{I\+O\+Loop}!I\+O\+Loop@{I\+O\+Loop}}
+\subsubsection[{\texorpdfstring{I\+O\+Loop(\+Socket \&, I\+O\+Handler \&)}{IOLoop(Socket &, IOHandler &)}}]{\setlength{\rightskip}{0pt plus 5cm}I\+O\+Loop\+::\+I\+O\+Loop (
+\begin{DoxyParamCaption}
+\item[{{\bf Socket} \&}]{listener, }
+\item[{{\bf I\+O\+Handler} \&}]{handler}
+\end{DoxyParamCaption}
+)}\hypertarget{classIOLoop_a991895206fdd315c28a9437d0b00e2a3}{}\label{classIOLoop_a991895206fdd315c28a9437d0b00e2a3}
+\hyperlink{classIOLoop}{I\+O\+Loop} constructor, takes \hyperlink{classSocket}{Socket} and \hyperlink{classIOHandler}{I\+O\+Handler} refference. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

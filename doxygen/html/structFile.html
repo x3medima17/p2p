@@ -38,6 +38,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -90,14 +91,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">File Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="File_8hpp_source.html">File.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad0746cf10905ee35809f9e64452dc947"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad0746cf10905ee35809f9e64452dc947"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>File</b> (std::string fname, size_t size)</td></tr>
+<tr class="memitem:ad0746cf10905ee35809f9e64452dc947"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFile.html#ad0746cf10905ee35809f9e64452dc947">File</a> (std::string fname, size_t size)</td></tr>
 <tr class="separator:ad0746cf10905ee35809f9e64452dc947"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a953519811424483b08848c889a7f0743"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a953519811424483b08848c889a7f0743"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> () const </td></tr>
+<tr class="memitem:a953519811424483b08848c889a7f0743"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFile.html#a953519811424483b08848c889a7f0743">print</a> () const </td></tr>
 <tr class="separator:a953519811424483b08848c889a7f0743"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -109,6 +110,59 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>fname_</b></td
 size_t&#160;</td><td class="memItemRight" valign="bottom"><b>size_</b></td></tr>
 <tr class="separator:ac884c55c119bb40a06be3f81abaa79ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Child uses C++17 feature called FileSystem, in order to keep data close I use <a class="el" href="structFile.html">File</a> class, it stores filename and size. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ad0746cf10905ee35809f9e64452dc947"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">File::File </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>fname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Standard file constructor </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fname</td><td><a class="el" href="structFile.html">File</a> name </td></tr>
+    <tr><td class="paramname">size</td><td><a class="el" href="structFile.html">File</a> size </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a953519811424483b08848c889a7f0743"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void File::print </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Method that prints file data in a pretty format. Mainly used for debugging. </p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following files:<ul>
 <li>include/<a class="el" href="File_8hpp_source.html">File.hpp</a></li>
 <li>src/File.cpp</li>

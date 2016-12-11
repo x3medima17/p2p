@@ -42,7 +42,20 @@
  *
  * \subsection siohandler SuperIOHandler
  * SuperIOHandler extends IOHandler and is passed to IOLoop, this way Supers's IOLoop will invoke SuperIOHandler's onRead method.
- * etc...
+ *
+ * \subsection ciohadnler ChildIOHandler
+ * SuperIOHandler extends IOHandler and is passed to IOLoop, this way Supers's IOLoop will invoke SuperIOHandler's onRead method.
+ *
+ * \section Super
+ * It is source code of Super Node, first of all it scans command line arguments. If another supernode arguments are present it
+ * it will send HELLO_SUPER message (messages are explained later), then it takes its own port and starts server using IOLoop on
+ * that port.
+ *
+ * \section Child
+ * It is source code of Child Node, first of all it scans command line arguments. it finds supernode arguments and sends
+ * HELLO_CHILD message (messages are explained later), then it takes its own port and starts server using IOLoop on
+ * that port.
+ *
  */
 
 #include <iostream>
@@ -57,18 +70,37 @@
 #include "File.hpp"
 
 
+/**
+ * This class keeps node information, it can be either SuperNode or ChildNode.
+ */
+
 struct Node {
     uint32_t id_{0};
     uint16_t port_;
     std::string ip_;
 
+    /**
+     * Commonly used constructor
+     * @param id Node id
+     * @param port Node's port
+     * @param ip Node's ip
+     */
     Node(uint32_t id, uint16_t port, std::string ip) :
             id_(id), port_(port), ip_(ip) {}
 
+    /**
+     * Default constructor to save it to a map
+     */
     Node() {}
 };
 
+/**
+ * Filetable keeps all ingormation about files shared between supernodes and available for child nodes
+ */
 class FileTable {
+    /**
+     * It is basically an extension for File, but it only keeps file size and Node credentials
+     */
     struct Entry {
         size_t fsize_{0};
         std::string ip_{0};
@@ -83,28 +115,57 @@ class FileTable {
     };
 
 public:
+    /**
+     * This method allows us to insert a new entry into FileTable
+     * @param fname File name
+     * @param fsize File size
+     * @param ip Node ip
+     * @param port Node port
+     */
     void insert(std::string fname, size_t fsize, std::string ip, uint16_t port) {
         Entry e(fsize, ip, port);
 
         table[fname] = e;
     }
 
+    /**
+     * It finds the right node for the searched file, or returns end iterator if file is not found.
+     * @param fname File name
+     * @return Const iterator to entry, or end
+     */
     std::map<std::string, Entry>::const_iterator find(std::string fname) {
         return table.find(fname);
     }
 
+    /**
+     * Returns FileTable sizee
+     * @return size
+     */
     size_t size() {
         return table.size();
     }
 
+    /**
+     * Returns beginning of the FileTable
+     * @return Iterator to the beginning
+     */
     std::map<std::string, Entry>::const_iterator beign() {
         return table.begin();
     };
 
+    /**
+     * End iterator
+     * @return Iterator to the end
+     */
     std::map<std::string, Entry>::const_iterator end() {
         return table.end();
     };
 
+
+    /**
+     * Method that prints FileTable in a pretty format.
+     * Mainly used for debugging.
+     */
     void print() {
         for (auto &item : table) {
             std::cout << item.first << " " << item.second.fsize_ << " " << item.second.ip_ << " ";
@@ -122,14 +183,32 @@ private:
 FileTable fileTable;
 std::vector<Node> SuperNodes, ChildNodes;
 
+
+/**
+ * This class extends IOHandler and implements its onRead functions
+ * There are two `onRead` functions, one for stdin, another for sockets
+ */
 class SuperIOHandler : public IOHandler {
 public:
+
+    /**
+     * Super does not read anything from stdin, just close
+     * @param fd File descriptor, it is 0 for stdin
+     * @param readfd File descriptor set, that is used for `select()`
+     */
     void onRead(size_t fd, fd_set *readfd) override {
 //        char *buff = (char *) alloca(50);
 //        int n = read(0, buff, 50);
 //        std::cout << n << " --- " << std::string(buff) << std::endl;
         FD_CLR(fd, readfd);
     }
+
+    /**
+     * This method is invoked if there is something to read from a socket \n
+     * A message is read using Utils namespace, then based on that message type a certain action will take place.
+     * @param client A reference to shared poiter to client
+     * @param readfd File descriptor set, that is used for `select()`
+     */
 
     void onRead(std::shared_ptr<Socket> &client, fd_set *readfd) override {
         auto msg = Utils::read_message(*client);

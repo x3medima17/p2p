@@ -7,7 +7,13 @@
 #include <cstdint>
 #include <vector>
 #include <sstream>
-
+/**
+ * This is one the main classes in the application.
+ * All data exchange on the network is done through Messages. \n
+ * It has a header and a payload. Header is 12 bytes and payload has variable length.
+ * All payload is sent in a raw format and then read as string streams, the only exceptions are
+ * files that are being transmitted.
+ */
 struct Message {
 
     /**
@@ -43,8 +49,17 @@ struct Message {
     std::vector<uint8_t> payload;
     std::stringstream ss;
 
+    /**
+     * Because payload is vector of bytes, it cannot be assigned by a string,
+     * method set_payload takes a string and copies it byte by byte.
+     * @param s payload as a string
+     */
     void set_payload(std::string s);
 
+    /**
+     * Method that prints message in a pretty format.
+     * Mainly used for debugging.
+     */
     void print() const;
 
 };
