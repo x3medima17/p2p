@@ -55,6 +55,13 @@ public:
         return table.find(fname);
     }
 
+    size_t size() {
+        return table.size();
+    }
+
+    std::map<std::string, Entry>::const_iterator beign() {
+        return table.begin();
+    };
 
     std::map<std::string, Entry>::const_iterator end() {
         return table.end();
@@ -97,7 +104,7 @@ public:
                 uint16_t port;
                 msg.ss >> port;
                 ChildNodes.emplace_back(Node(node_id, port, node_ip));
-
+                std::cout<<"New child "<<port<<std::endl;
                 Message out;
                 out.msg_type = static_cast<uint32_t >(Message::MSG_TYPES::SUPER_HELLO);
                 Utils::write_message(*client, out);
@@ -107,8 +114,26 @@ public:
             case Message::MSG_TYPES::SUPER_SUPER_HELLO: {
                 uint16_t port;
                 msg.ss >> port;
+                Node curr(node_id, port, node_ip);
+                SuperNodes.emplace_back(curr);
+                std::cout<<"Connected supernodes: "<<SuperNodes.size()<<std::endl;
+                break;
+                /////////////////
+                std::stringstream to_share;
+                to_share << fileTable.size() << std::endl;
+                for (auto it = fileTable.beign(); it != fileTable.end(); it++)
+                    to_share << it->first << " " << it->second.fsize_ << " " << it->second.ip_ << " "
+                             << it->second.port_ << std::endl;
 
-                SuperNodes.emplace_back(Node(node_id, port, node_ip));
+                Socket s(curr.ip_, curr.port_);
+                s.connect();
+                Message tmp;
+                tmp.msg_type = static_cast<uint16_t >(Message::MSG_TYPES::FILE_INFO_SHARE);
+                tmp.set_payload(to_share.str());
+                Utils::write_message(s, tmp);
+                auto resp = Utils::read_message(s);
+                if (resp.msg_type != static_cast<uint32_t >(Message::MSG_TYPES::FILE_INFO_SHARE_SUCCESS))
+                    throw std::runtime_error("File info share error");
 
                 break;
             }
@@ -134,7 +159,7 @@ public:
                         size_t fsize;
                         msg.ss >> fname >> fsize;
                         fileTable.insert(fname, fsize, it->ip_, it->port_);
-                        to_broadcast<<fname<<" "<<fsize<<" "<<it->ip_<<" "<<it->port_<<std::endl;
+                        to_broadcast << fname << " " << fsize << " " << it->ip_ << " " << it->port_ << std::endl;
                     }
 
                     Message out;
@@ -142,16 +167,18 @@ public:
                     Utils::write_message(*client, out);
 
                     //Broadcast file info
-                    for(auto& node: SuperNodes)
-                    {
+                    std::cout<<"Broadcasting..."<<std::endl;
+                    for (auto &node: SuperNodes) {
                         Socket s(node.ip_, node.port_);
+                        std::cout<<"Connect to "<<node.port_<<std::endl;
                         s.connect();
+                        std::cout<<"Done"<<std::endl;
                         Message tmp;
-                        out.msg_type = static_cast<uint16_t >(Message::MSG_TYPES::FILE_INFO_SHARE);
-                        out.set_payload(to_broadcast.str());
-                        Utils::write_message(s, out);
+                        tmp.msg_type = static_cast<uint16_t >(Message::MSG_TYPES::FILE_INFO_SHARE);
+                        tmp.set_payload(to_broadcast.str());
+                        Utils::write_message(s, tmp);
                         auto resp = Utils::read_message(s);
-                        if(resp.msg_type != static_cast<uint32_t >(Message::MSG_TYPES::FILE_INFO_SHARE_SUCCESS))
+                        if (resp.msg_type != static_cast<uint32_t >(Message::MSG_TYPES::FILE_INFO_SHARE_SUCCESS))
                             throw std::runtime_error("File info share error");
 
                     }
@@ -248,10 +275,12 @@ int main(int argc, char **argv) {
         s.connect();
         Message out;
         out.msg_type = static_cast<uint32_t >(Message::MSG_TYPES::SUPER_SUPER_HELLO);
+        out.set_payload(M.find("p")->second);
         Utils::write_message(s, out);
         SuperNodes.emplace_back(Node(0, s_port, s_ip));
 
-    }
+    } else
+        std::cout << "NO NODES" << std::endl;
 
     int port = std::stoi(M.find("p")->second);
     std::cout << port << std::endl;

@@ -18,8 +18,7 @@
 //    exit(1);
 //}
 
-void error(const char *msg)
-{
+void error(const char *msg) {
     perror(msg);
     exit(0);
 }
@@ -95,7 +94,7 @@ void Socket::connect() {
 
     if (::connect(this->sockfd, (struct sockaddr *) &(this->serv_addr), sizeof(this->serv_addr)) < 0)
 //        throw std::runtime_error("ERROR connecting");
-            error("ERROR connecting");
+        error("ERROR connecting");
     fcntl(sockfd, F_SETFL, fcntl(sockfd, F_GETFL) | O_NONBLOCK);
 
 }
@@ -128,6 +127,7 @@ std::pair<size_t, std::vector<uint8_t >> Socket::recvall(size_t length, size_t t
     size_t remaining = length;
     std::vector<uint8_t> buff;
 
+    size_t tmp = timeout;
     size_t wait_ms = 10;
     while (done != length && timeout > 0) {
         auto curr = recv(remaining);
@@ -140,8 +140,15 @@ std::pair<size_t, std::vector<uint8_t >> Socket::recvall(size_t length, size_t t
         timeout -= wait_ms;
     }
 
-    if(done != length)
+    if (timeout <= 0)
+    {
+
+        std::cout << tmp << std::endl;
         throw std::runtime_error("Recvall timed out");
+    }
+
+    if (done != length)
+        throw std::runtime_error("Broken message");
 
     assert(done == length);
     assert(remaining == 0);
@@ -161,12 +168,12 @@ std::pair<size_t, std::vector<uint8_t >> Socket::recv(size_t length) const {
         n = 0;
     }
 
-    return std::make_pair(n, std::vector<uint8_t >(buff.begin(), buff.begin()+n) );
+    return std::make_pair(n, std::vector<uint8_t>(buff.begin(), buff.begin() + n));
 
 }
 
-ssize_t Socket::send(const std::vector<uint8_t>& msg) const {
-    if(msg.size() == 0)
+ssize_t Socket::send(const std::vector<uint8_t> &msg) const {
+    if (msg.size() == 0)
         return 0;
     auto ptr = &(msg.at(0));
     uint8_t *const buffer = const_cast<uint8_t *>(ptr);

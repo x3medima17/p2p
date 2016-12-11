@@ -16,7 +16,7 @@ namespace Utils {
 
     std::vector<uint8_t> vec_from_uint32(uint32_t val);
 
-    Message read_message(const Socket &sock);
+    Message read_message(const Socket &sock, size_t timeout = 5000);
 
     void write_message(const Socket &sock,Message &msg);
 

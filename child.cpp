@@ -21,9 +21,19 @@ namespace fs = std::experimental::filesystem;
 using std::cout;
 using std::endl;
 
+
+uint32_t  set_random_id()
+{
+    int x;
+    int *p = &x;
+
+    uint32_t  a = reinterpret_cast<uint64_t >( p );
+    return a;
+}
+
 uint16_t S_PORT, PORT;
 std::string S_IP;
-
+const uint32_t ID = set_random_id();
 
 auto scan() {
     Message msg;
@@ -50,7 +60,7 @@ public:
         else {
             Message out;
             out.msg_type = static_cast<uint32_t>(Message::MSG_TYPES::SEARCH_QUERY);
-            out.id = PORT;
+            out.id = ID;
             out.set_payload(arg1);
             Socket s(S_IP, S_PORT);
             s.connect();
@@ -72,8 +82,11 @@ public:
                     Socket s_req(ip, port);
                     s_req.connect();
                     Utils::write_message(s_req, out);
-                    resp = Utils::read_message(s_req);
-                    resp.print();
+                    resp = Utils::read_message(s_req, 100000);
+
+                    std::ofstream fout("download/" + arg2, std::ios::binary);
+                    char *ptr = (char *) (&resp.payload[0]);
+                    fout.write(ptr, resp.payload_length);
                 }
             }
         }
@@ -82,7 +95,7 @@ public:
 
     void onRead(std::shared_ptr<Socket> &client, fd_set *readfd) override {
         auto msg = Utils::read_message(*client);
-        uint32_t node_id = msg.id;
+        uint32_t node_id = ID;
         std::string node_ip = client->get_remote_ip();
 
         Message::MSG_TYPES action = static_cast<Message::MSG_TYPES >(msg.msg_type);
@@ -109,18 +122,36 @@ public:
                     out.msg_type = static_cast<uint16_t >(Message::MSG_TYPES::FILE_RES_FAIL);
                     Utils::write_message(*client, out);
                 } else {
+
+                    //Optimized write
 //                    fs::path p = fs::current_path() / "example.bin";
                     uint32_t fsize = fs::file_size("data/" + fname);
                     Message out;
                     out.msg_type = static_cast<uint16_t >(Message::MSG_TYPES::FILE_RES_SUCCESS);
 //                    out.payload.resize(fsize);
-                    char* buff = (char*)malloc(fsize);
+                    char *buff = (char *) malloc(fsize);
+
+                    uint32_t payload_size = fsize;
+                    std::vector<uint8_t> header;
+
+                    //OUT
+                    uint32_t total_length = htonl(Utils::HEADER_SIZE + fsize);
+                    uint32_t id = ID;
+                    auto tmp = Utils::vec_from_uint32(total_length);
+                    header.insert(header.end(), tmp.begin(), tmp.end());
+
+                    tmp = Utils::vec_from_uint32(id);
+                    header.insert(header.end(), tmp.begin(), tmp.end());
+
+                    tmp = Utils::vec_from_uint32(out.msg_type);
+                    header.insert(header.end(), tmp.begin(), tmp.end());
+
+                    client->send(header);
 
                     fin.read(buff, fsize);
-                    out.payload.insert(out.payload.begin(), buff, buff+fsize);
+                    out.payload.insert(out.payload.begin(), buff, buff + fsize);
                     free(buff);
-                    Utils::write_message(*client, out);
-
+                    client->send(out.payload);
                 }
             }
                 // Messages not suitable for child nodes
@@ -133,7 +164,6 @@ public:
 
         }
 
-//        Utils::write_message(*client, msg);
         FD_CLR(client->get_fd(), readfd);
         client = nullptr;
     }
@@ -161,7 +191,7 @@ int main(int argc, char **argv) {
     //Hello
     Message out;
     out.msg_type = static_cast<uint32_t >(Message::MSG_TYPES::CHILD_HELLO);
-    out.id = PORT;
+    out.id = ID;
     out.set_payload(std::to_string(PORT));
 
     Utils::write_message(s, out);
@@ -182,7 +212,7 @@ int main(int argc, char **argv) {
     s2.connect();
     out = Message();
     out.msg_type = static_cast<uint32_t >(Message::MSG_TYPES::FILE_INFO);
-    out.id = PORT;
+    out.id = ID;
     out.set_payload(ss.str());
     Utils::write_message(s2, out);
     resp = Utils::read_message(s2);

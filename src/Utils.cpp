@@ -3,6 +3,7 @@
 //
 
 
+#include <iostream>
 #include "Utils.hpp"
 
 namespace Utils {
@@ -26,7 +27,8 @@ namespace Utils {
         return buffer;
     }
 
-    Message read_message(const Socket &sock) {
+    Message read_message(const Socket &sock, size_t timeout) {
+        std::cout<<"---| "<<timeout<<std::endl;
         Message msg;
         auto tmp = sock.recvall(HEADER_SIZE);
         auto header = tmp.second;
@@ -36,7 +38,7 @@ namespace Utils {
         msg.payload_length = msg.total_length - HEADER_SIZE;
         if(msg.payload_length > 0)
         {
-            tmp = sock.recvall(msg.payload_length, 1000000);
+            tmp = sock.recvall(msg.payload_length, timeout);
             msg.payload = tmp.second;
         }
 
