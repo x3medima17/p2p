@@ -13,10 +13,35 @@
  *
  *
  * \section install_sec Installation
- * First of all you need to clone project repository: https://github.com/x3medima17/p2p
- * Then you have to run cmake
- * \subsection step1 Step 1: Opening the box
+ * First of all you need to clone project repository: https://github.com/x3medima17/p2p\n
+ * Then you have to run cmake as follows
+ * > cd build \n
+ * > cmake ..\n
+ * > make\n
  *
+ * It will generate `super` and `child` executables in `build` directory, and copy them to the following ones:
+ * > env/child/child1/\n
+ * > env/child/child2/\n
+ * > env/child/child3/\n
+ * > env/child/super/\n
+ *
+ * Now you are ready to run those files, each child has its own `data` and `download` directory.
+ *
+ * \section serv Server
+ * Both Child and Super are based on client-server architecture, and both of them can work as clients and servers at the same time.\n
+ * For this purpose a listener server is needed on each side, the architecture that I have chosen is IOLoop
+ * \subsection ioloop IOLoop
+ * IOLoop is an class that uses IO Multiplexing, it has a listener socket and continuously loops waiting
+ * waiting for incoming data. Using `select()` it accepts and spawns new sockets. \n
+ * It has a IOHandler virtual class that is used to handle incoming data.
+ *
+ * \subsecton iohandler IOHandler
+ * IOHandler is an semi-abstract class that is a member of IOLoop, its job is to take incoming data and do some actions on it.
+ * Its default behaivor is to ignore any data.
+ *
+ *
+ * \subsection siohandler SuperIOHandler
+ * SuperIOHandler extends IOHandler and is passed to IOLoop, this way Supers's IOLoop will invoke SuperIOHandler's onRead method.
  * etc...
  */
 

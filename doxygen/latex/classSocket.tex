@@ -1,0 +1,56 @@
+\hypertarget{classSocket}{}\section{Socket Class Reference}
+\label{classSocket}\index{Socket@{Socket}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Socket} (int port)\hypertarget{classSocket_a1c4718d5b4b33f92559ba413ad119c03}{}\label{classSocket_a1c4718d5b4b33f92559ba413ad119c03}
+
+\item 
+{\bfseries Socket} (std\+::string host, int port)\hypertarget{classSocket_a6f2a05cfd7ed519d6996bd93fc97b1d8}{}\label{classSocket_a6f2a05cfd7ed519d6996bd93fc97b1d8}
+
+\item 
+void {\bfseries bind} ()\hypertarget{classSocket_ace1da4f860ac0af46d702cb5fc875a51}{}\label{classSocket_ace1da4f860ac0af46d702cb5fc875a51}
+
+\item 
+void {\bfseries listen} (int n)\hypertarget{classSocket_a013eb69c37d618d6eda7ed1b56d855fb}{}\label{classSocket_a013eb69c37d618d6eda7ed1b56d855fb}
+
+\item 
+void {\bfseries connect} ()\hypertarget{classSocket_a6b6e12fe65a4a47426e4dcfee7a37461}{}\label{classSocket_a6b6e12fe65a4a47426e4dcfee7a37461}
+
+\item 
+std\+::shared\+\_\+ptr$<$ \hyperlink{classSocket}{Socket} $>$ {\bfseries accept} () const \hypertarget{classSocket_af2f293542ac8118caf8d1b080e5fc536}{}\label{classSocket_af2f293542ac8118caf8d1b080e5fc536}
+
+\item 
+std\+::pair$<$ size\+\_\+t, std\+::vector$<$ uint8\+\_\+t $>$ $>$ {\bfseries recv} (size\+\_\+t length) const \hypertarget{classSocket_a26b9b140ccf151ca483f35e1751ca6b9}{}\label{classSocket_a26b9b140ccf151ca483f35e1751ca6b9}
+
+\item 
+std\+::pair$<$ size\+\_\+t, std\+::vector$<$ uint8\+\_\+t $>$ $>$ {\bfseries recvall} (size\+\_\+t length, size\+\_\+t timeout=timeout\+\_\+ms) const \hypertarget{classSocket_a771a254112e93ad650a5215f31d0ed07}{}\label{classSocket_a771a254112e93ad650a5215f31d0ed07}
+
+\item 
+ssize\+\_\+t {\bfseries send} (const std\+::vector$<$ uint8\+\_\+t $>$ \&msg) const \hypertarget{classSocket_a9170626275747d237ec41e34bc06adde}{}\label{classSocket_a9170626275747d237ec41e34bc06adde}
+
+\item 
+std\+::string {\bfseries get\+\_\+remote\+\_\+ip} () const \hypertarget{classSocket_ac306c4319e44c66f06629d514f14fae0}{}\label{classSocket_ac306c4319e44c66f06629d514f14fae0}
+
+\item 
+int {\bfseries get\+\_\+remote\+\_\+port} () const \hypertarget{classSocket_a7ceb505f14a64370adad549d03618685}{}\label{classSocket_a7ceb505f14a64370adad549d03618685}
+
+\item 
+int {\bfseries get\+\_\+fd} () const \hypertarget{classSocket_a0b71ac10bfba0a07612b7db0caa4ce6a}{}\label{classSocket_a0b71ac10bfba0a07612b7db0caa4ce6a}
+
+\item 
+void {\bfseries close} ()\hypertarget{classSocket_a75ee749264ccbcfc4dfbf5442e55dcb8}{}\label{classSocket_a75ee749264ccbcfc4dfbf5442e55dcb8}
+
+\item 
+{\bfseries Socket} (const \hyperlink{classSocket}{Socket} \&)=delete\hypertarget{classSocket_aae1f09b930bb7118172baa0abb15543e}{}\label{classSocket_aae1f09b930bb7118172baa0abb15543e}
+
+\item 
+\hyperlink{classSocket}{Socket} \& {\bfseries operator=} (const \hyperlink{classSocket}{Socket} \&)=delete\hypertarget{classSocket_a32353d2225228b1ee4e3abef0f96cca7}{}\label{classSocket_a32353d2225228b1ee4e3abef0f96cca7}
+
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Socket.\+hpp\item 
+src/Socket.\+cpp\end{DoxyCompactItemize}

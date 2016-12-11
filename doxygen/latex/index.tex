@@ -1,0 +1,26 @@
+\hypertarget{index_intro_sec}{}\section{Introduction}\label{index_intro_sec}
+In the following project a p2p network has been implemented. Here overall project structure is described, detailed description of each structure is present below.\hypertarget{index_install_sec}{}\section{Installation}\label{index_install_sec}
+First of all you need to clone project repository\+: \href{https://github.com/x3medima17/p2p}{\tt https\+://github.\+com/x3medima17/p2p}~\newline
+Then you have to run cmake as follows \begin{quote}
+cd build ~\newline
+cmake ..~\newline
+make~\newline
+\end{quote}
+
+
+It will generate {\ttfamily super} and {\ttfamily child} executables in {\ttfamily build} directory, and copy them to the following ones\+: \begin{quote}
+env/child/child1/~\newline
+env/child/child2/~\newline
+env/child/child3/~\newline
+env/child/super/~\newline
+\end{quote}
+
+
+Now you are ready to run those files, each child has its own {\ttfamily data} and {\ttfamily download} directory.\hypertarget{index_serv}{}\section{Server}\label{index_serv}
+Both Child and Super are based on client-\/server architecture, and both of them can work as clients and servers at the same time.~\newline
+For this purpose a listener server is needed on each side, the architecture that I have chosen is \hyperlink{classIOLoop}{I\+O\+Loop} \hypertarget{index_ioloop}{}\subsection{I\+O\+Loop}\label{index_ioloop}
+\hyperlink{classIOLoop}{I\+O\+Loop} is an class that uses IO Multiplexing, it has a listener socket and continuously loops waiting waiting for incoming data. Using {\ttfamily select()} it accepts and spawns new sockets. ~\newline
+It has a \hyperlink{classIOHandler}{I\+O\+Handler} virtual class that is used to handle incoming data.
+
+iohandler \hyperlink{classIOHandler}{I\+O\+Handler} \hyperlink{classIOHandler}{I\+O\+Handler} is an semi-\/abstract class that is a member of \hyperlink{classIOLoop}{I\+O\+Loop}, its job is to take incoming data and do some actions on it. Its default behaivor is to ignore any data.\hypertarget{index_siohandler}{}\subsection{Super\+I\+O\+Handler}\label{index_siohandler}
+\hyperlink{classSuperIOHandler}{Super\+I\+O\+Handler} extends \hyperlink{classIOHandler}{I\+O\+Handler} and is passed to \hyperlink{classIOLoop}{I\+O\+Loop}, this way Supers\textquotesingle{}s \hyperlink{classIOLoop}{I\+O\+Loop} will invoke \hyperlink{classSuperIOHandler}{Super\+I\+O\+Handler}\textquotesingle{}s on\+Read method. etc... 

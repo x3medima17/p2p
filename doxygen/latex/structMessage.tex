@@ -1,0 +1,68 @@
+\hypertarget{structMessage}{}\section{Message Struct Reference}
+\label{structMessage}\index{Message@{Message}}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{structMessage_a2cd191f475dd51cf44f57950e8862cd3}{M\+S\+G\+\_\+\+T\+Y\+P\+ES} \+: std\+::uint32\+\_\+t \{ \\*
+{\bfseries C\+H\+I\+L\+D\+\_\+\+H\+E\+L\+LO} = 0x10, 
+{\bfseries S\+U\+P\+E\+R\+\_\+\+H\+E\+L\+LO} = 0x11, 
+{\bfseries S\+U\+P\+E\+R\+\_\+\+S\+U\+P\+E\+R\+\_\+\+H\+E\+L\+LO} = 0x12, 
+{\bfseries F\+I\+L\+E\+\_\+\+I\+N\+FO} = 0x20, 
+\\*
+{\bfseries F\+I\+L\+E\+\_\+\+I\+N\+F\+O\+\_\+\+R\+E\+C\+V\+\_\+\+S\+U\+C\+C\+E\+SS} = 0x21, 
+{\bfseries F\+I\+L\+E\+\_\+\+I\+N\+F\+O\+\_\+\+R\+E\+C\+V\+\_\+\+E\+R\+R\+OR} = 0x22, 
+{\bfseries S\+E\+A\+R\+C\+H\+\_\+\+Q\+U\+E\+RY} = 0x30, 
+{\bfseries S\+E\+A\+R\+C\+H\+\_\+\+A\+N\+S\+\_\+\+S\+U\+C\+C\+E\+SS} = 0x31, 
+\\*
+{\bfseries S\+E\+A\+R\+C\+H\+\_\+\+A\+N\+S\+\_\+\+F\+A\+IL} = 0x32, 
+{\bfseries F\+I\+L\+E\+\_\+\+R\+EQ} = 0x40, 
+{\bfseries F\+I\+L\+E\+\_\+\+R\+E\+S\+\_\+\+S\+U\+C\+C\+E\+SS} = 0x41, 
+{\bfseries F\+I\+L\+E\+\_\+\+R\+E\+S\+\_\+\+F\+A\+IL} = 0x42, 
+\\*
+{\bfseries F\+I\+L\+E\+\_\+\+I\+N\+F\+O\+\_\+\+S\+H\+A\+RE} = 0x50, 
+{\bfseries F\+I\+L\+E\+\_\+\+I\+N\+F\+O\+\_\+\+S\+H\+A\+R\+E\+\_\+\+S\+U\+C\+C\+E\+SS} = 0x51, 
+{\bfseries F\+I\+L\+E\+\_\+\+I\+N\+F\+O\+\_\+\+S\+H\+A\+R\+E\+\_\+\+E\+R\+R\+OR} = 0x52
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries set\+\_\+payload} (std\+::string s)\hypertarget{structMessage_a8c71bc14df10d1bc4a11c9912ec83e11}{}\label{structMessage_a8c71bc14df10d1bc4a11c9912ec83e11}
+
+\item 
+void {\bfseries print} () const \hypertarget{structMessage_a2967b7c13fd34ea7767b6e00076b3e76}{}\label{structMessage_a2967b7c13fd34ea7767b6e00076b3e76}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t {\bfseries total\+\_\+length} \{0\}\hypertarget{structMessage_a956485001345f455ac9ff675c9ec33ff}{}\label{structMessage_a956485001345f455ac9ff675c9ec33ff}
+
+\item 
+uint32\+\_\+t {\bfseries payload\+\_\+length} \{0\}\hypertarget{structMessage_a7540c3196a9649f76747a2e559ec34ac}{}\label{structMessage_a7540c3196a9649f76747a2e559ec34ac}
+
+\item 
+uint32\+\_\+t {\bfseries id} \{0\}\hypertarget{structMessage_a4c34674ebe8e9ac6a62a5b7c9c3e4123}{}\label{structMessage_a4c34674ebe8e9ac6a62a5b7c9c3e4123}
+
+\item 
+uint32\+\_\+t {\bfseries msg\+\_\+type} \{0\}\hypertarget{structMessage_a127a7296f3fe3ca2379b52d4d578d128}{}\label{structMessage_a127a7296f3fe3ca2379b52d4d578d128}
+
+\item 
+std\+::vector$<$ uint8\+\_\+t $>$ {\bfseries payload}\hypertarget{structMessage_ae178876b7de2f7d7629663350d20c599}{}\label{structMessage_ae178876b7de2f7d7629663350d20c599}
+
+\item 
+std\+::stringstream {\bfseries ss}\hypertarget{structMessage_ac499b4fb6c41a7512584c3cff3c68469}{}\label{structMessage_ac499b4fb6c41a7512584c3cff3c68469}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Enumeration Documentation}
+\index{Message@{Message}!M\+S\+G\+\_\+\+T\+Y\+P\+ES@{M\+S\+G\+\_\+\+T\+Y\+P\+ES}}
+\index{M\+S\+G\+\_\+\+T\+Y\+P\+ES@{M\+S\+G\+\_\+\+T\+Y\+P\+ES}!Message@{Message}}
+\subsubsection[{\texorpdfstring{M\+S\+G\+\_\+\+T\+Y\+P\+ES}{MSG_TYPES}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Message\+::\+M\+S\+G\+\_\+\+T\+Y\+P\+ES} \+: std\+::uint32\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}\hypertarget{structMessage_a2cd191f475dd51cf44f57950e8862cd3}{}\label{structMessage_a2cd191f475dd51cf44f57950e8862cd3}
+Enum designed to work safely with \hyperlink{structMessage}{Message} types No raw flags are used, only encapsulated enum 
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Message.\+hpp\item 
+src/Message.\+cpp\end{DoxyCompactItemize}
